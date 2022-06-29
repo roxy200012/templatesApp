@@ -1,0 +1,41 @@
+<div class="c">
+    <mat-card class="text">
+        <mat-card-content>
+          <form class="form">
+              <h3 class="title">Add Template</h3>
+            <mat-form-field appearance="legacy">
+              <mat-label>Subject</mat-label>
+              <input matInput [(ngModel)]="subject" [ngModelOptions]="{standalone: true}"/>
+              
+            </mat-form-field>
+            <mat-form-field appearance="legacy">
+              <mat-label>Body</mat-label>
+              <input matInput  [(ngModel)]="body" [ngModelOptions]="{standalone: true}"  />
+              
+            </mat-form-field>
+            <mat-form-field appearance="legacy">
+                <mat-label>Code</mat-label>
+                <input matInput [(ngModel)]="code" [ngModelOptions]="{standalone: true}" />
+                
+              </mat-form-field>
+              <mat-form-field appearance="legacy">
+                <mat-label>Language</mat-label>
+                <input matInput [(ngModel)]="language" [ngModelOptions]="{standalone: true}" />
+               
+              </mat-form-field>
+              <mat-form-field appearance="legacy">
+                <mat-label>Description</mat-label>
+                <input matInput [(ngModel)]="description"  [ngModelOptions]="{standalone: true}"/>
+                
+              </mat-form-field>
+              <mat-form-field appearance="legacy">
+                <mat-label>Sample</mat-label>
+                <input matInput [(ngModel)]="sample" [ngModelOptions]="{standalone: true}"  />
+                
+              </mat-form-field>
+              <button class="btn" mat-raised-button color="primary" (click)="onSave()">Save</button>
+              
+            </form>
+        </mat-card-content>
+      </mat-card>
+    </div>

@@ -1,0 +1,102 @@
+<div > 
+  <button mat-icon-button  style="margin-right: 5%;" (click)="exportAsXLSX()">
+    Export Excel <mat-icon>download</mat-icon>
+  </button>
+  <button 
+    type="button"
+    mat-icon-button
+    (click)="fileInput.click()"
+  >
+    Import Excel<mat-icon>upload</mat-icon>
+  </button>
+  <input hidden (change)="incomingfile()" #fileInput type="file" id="file" />
+</div>
+<mat-table class="element-table mat-elevation-z8" [dataSource]="dataSource">
+  <ng-container matColumnDef="id">
+    <mat-header-cell *matHeaderCellDef class="mat-cell-header"
+      >#</mat-header-cell
+    >
+    <mat-cell *matCellDef="let element">{{ element.templateId }}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="subject">
+    <mat-header-cell *matHeaderCellDef class="mat-cell-header"
+      >Subject</mat-header-cell
+    >
+    <mat-cell class="description-cell" *matCellDef="let element">{{
+      element.templateSubject
+    }}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="code">
+    <mat-header-cell *matHeaderCellDef class="mat-cell-header"
+      >Code</mat-header-cell
+    >
+    <mat-cell class="duration-cell" *matCellDef="let element">{{
+      element.templateCode
+    }}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="lang">
+    <mat-header-cell *matHeaderCellDef class="mat-cell-header"
+      >Language</mat-header-cell
+    >
+    <mat-cell class="duration-cell" *matCellDef="let element">
+      <img
+        class="img"
+        *ngIf="element.templateLang == 'it' || element.templateLang == 'IT'"
+        src="../../../assets/it.png"
+      />
+      <img
+        class="img2"
+        *ngIf="element.templateLang == 'en'"
+        src="../../../assets/en.png"
+      />
+    </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="description">
+    <mat-header-cell *matHeaderCellDef class="mat-cell-header"
+      >Description</mat-header-cell
+    >
+    <mat-cell class="duration-cell" *matCellDef="let element">{{
+      element.templateDescription
+    }}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="actions">
+    <mat-header-cell *matHeaderCellDef>Actions</mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      <button
+        style="margin-right: 3px"
+        mat-raised-button
+        color="primary"
+        [routerLink]="['/', element.templateId]"
+      >
+        <mat-icon>info</mat-icon>
+      </button>
+      <button
+        style="margin-right: 3px"
+        mat-raised-button
+        color="primary"
+        [routerLink]="['/add']"
+      >
+        <mat-icon>add</mat-icon>
+      </button>
+      <button
+        style="margin-right: 3px"
+        mat-raised-button
+        color="accent"
+        [routerLink]="['/edit/', element.templateId]"
+      >
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button
+        style="margin-right: 3px"
+        mat-raised-button
+        color="warn"
+        [routerLink]="['/delete/', element.templateId]"
+      >
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-cell>
+  </ng-container>
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+</mat-table>
+

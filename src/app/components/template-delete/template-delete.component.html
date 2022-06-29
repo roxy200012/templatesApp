@@ -1,0 +1,12 @@
+
+<mat-card *ngIf="template">
+    <mat-card-content>
+       <p>
+        {{template.templateSubject}}<br>
+        {{template.templateDescription}}<br>
+        {{template.templateCode}}
+
+       </p>
+       <button mat-raised-button color="warn" (click)="delete()">Delete</button>
+    </mat-card-content>
+   </mat-card>
